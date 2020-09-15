@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CajeroAutomaticoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Operacion">
+    <Key>
+      <PropertyRef Name="IdOperacion" />
+    </Key>
+    <Property Name="IdOperacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoOperacion" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CantidadARetirar" Type="Int64" />
+    <Property Name="FechaOperacion" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Tarjeta">
+    <Key>
+      <PropertyRef Name="NroTarjeta" />
+    </Key>
+    <Property Name="PinTarjeta" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="FechaVencimiento" Type="DateTime" Precision="3" />
+    <Property Name="NroTarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SaldoActual" Type="Int64" />
+    <Property Name="IsBlocked" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="CajeroAutomaticoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Operacions" EntityType="Self.Operacion" />
+    <EntitySet Name="Tarjetas" EntityType="Self.Tarjeta" />
+    <FunctionImport Name="BlockCreditCard">
+      <Parameter Name="NroTarjeta" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CommitOperation" ReturnType="Collection(CajeroAutomaticoModel.CommitOperation_Result)">
+      <Parameter Name="NroTarjeta" Mode="In" Type="String" />
+      <Parameter Name="TipoOperacion" Mode="In" Type="String" />
+      <Parameter Name="CantidadARetirar" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="CommitOperation_Result">
+    <Property Type="String" Name="NroTarjeta" Nullable="false" MaxLength="50" />
+    <Property Type="Int64" Name="SaldoActual" Nullable="true" />
+    <Property Type="DateTime" Name="FechaOperacion" Nullable="true" Precision="23" />
+  </ComplexType>
+</Schema>

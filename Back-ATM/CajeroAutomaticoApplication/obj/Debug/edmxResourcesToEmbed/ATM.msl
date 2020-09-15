@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CajeroAutomaticoModelStoreContainer" CdmEntityContainer="CajeroAutomaticoEntities">
+    <EntitySetMapping Name="Operacions">
+      <EntityTypeMapping TypeName="CajeroAutomaticoModel.Operacion">
+        <MappingFragment StoreEntitySet="Operacion">
+          <ScalarProperty Name="IdOperacion" ColumnName="IdOperacion" />
+          <ScalarProperty Name="NroTarjeta" ColumnName="NroTarjeta" />
+          <ScalarProperty Name="TipoOperacion" ColumnName="TipoOperacion" />
+          <ScalarProperty Name="CantidadARetirar" ColumnName="CantidadARetirar" />
+          <ScalarProperty Name="FechaOperacion" ColumnName="FechaOperacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tarjetas">
+      <EntityTypeMapping TypeName="CajeroAutomaticoModel.Tarjeta">
+        <MappingFragment StoreEntitySet="Tarjetas">
+          <ScalarProperty Name="PinTarjeta" ColumnName="PinTarjeta" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="NroTarjeta" ColumnName="NroTarjeta" />
+          <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
+          <ScalarProperty Name="IsBlocked" ColumnName="IsBlocked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="BlockCreditCard" FunctionName="CajeroAutomaticoModel.Store.BlockCreditCard" />
+    <FunctionImportMapping FunctionImportName="CommitOperation" FunctionName="CajeroAutomaticoModel.Store.CommitOperation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CajeroAutomaticoModel.CommitOperation_Result">
+          <ScalarProperty Name="NroTarjeta" ColumnName="NroTarjeta" />
+          <ScalarProperty Name="SaldoActual" ColumnName="SaldoActual" />
+          <ScalarProperty Name="FechaOperacion" ColumnName="FechaOperacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CajeroAutomaticoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Operacion">
+    <Key>
+      <PropertyRef Name="IdOperacion" />
+    </Key>
+    <Property Name="IdOperacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NroTarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TipoOperacion" Type="varchar" MaxLength="5" />
+    <Property Name="CantidadARetirar" Type="bigint" />
+    <Property Name="FechaOperacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Tarjetas">
+    <Key>
+      <PropertyRef Name="NroTarjeta" />
+    </Key>
+    <Property Name="PinTarjeta" Type="varchar" MaxLength="6" />
+    <Property Name="FechaVencimiento" Type="datetime" />
+    <Property Name="NroTarjeta" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SaldoActual" Type="bigint" />
+    <Property Name="IsBlocked" Type="bit" />
+  </EntityType>
+  <Function Name="BlockCreditCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NroTarjeta" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="CommitOperation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NroTarjeta" Type="varchar" Mode="In" />
+    <Parameter Name="TipoOperacion" Type="varchar" Mode="In" />
+    <Parameter Name="CantidadARetirar" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="CajeroAutomaticoModelStoreContainer">
+    <EntitySet Name="Operacion" EntityType="Self.Operacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
