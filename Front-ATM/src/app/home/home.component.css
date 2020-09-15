@@ -1,0 +1,10 @@
+.btns-operaciones{
+    text-align: center;
+}
+
+.btn-submit {
+    margin-right: 80px;
+    width: 8%;
+    height: 23px;
+    font-size: 13px;
+}

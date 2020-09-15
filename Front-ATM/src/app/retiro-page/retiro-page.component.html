@@ -1,0 +1,25 @@
+
+<div *ngIf="operacion === 'retiro'" class="content-retiro">
+  <label class="numberCantidadRetiro">Cantidad a retirar</label>  
+  <input class="input-cantidadRetiro" type="text" disabled="true" pattern="[0-9]*" placeholder="$$$$" [(ngModel)]="cantidadRetiro" ><span *ngIf="notCantidadRetiroEnter" class="ui-messages-error ">  *Ingrese la cantidad a retirar.</span>
+  <app-keyboard (sendNumber)="addNumberToRetiro($event)"></app-keyboard>
+  
+  <div class="btn-clear-submit">
+    <button class="btn-submit" type="button"  (click)="submit();"> Aceptar </button> <button class="btn-submit" type="button" (click)="clear();">Limpiar</button><button class="btn-clear" type="button" (click)="salir();"> Salir</button>
+  </div>
+</div>
+
+<div *ngIf="operacion === 'reporte'" class="content-retiro">
+  <div class="sec-info row">
+    <h3 class="title-reporte"> Operacion registrada correctamente </h3>
+    <label class="label-retiro">Numero de cuenta</label> <input type="text"  [(ngModel)]="creditCard" disabled="true">
+    <label class="label-retiro">Fecha de operacion</label><input type="text" [(ngModel)]="fechaOperacion" disabled="true">
+    <label class="label-retiro">Cantidad Retirada</label><input type="number" [(ngModel)]="cantidadRetiro" disabled="true">
+    <label class="label-retiro">Saldo Resultante</label><input type="number" [(ngModel)]="saldo" disabled="true"> 
+  </div>
+  <div class="btn-clear-submit">
+    <button class="btn-submit" type="button" (click)="atras();"> Atras </button> <button class="btn-clear" type="button" (click)="quit();">Salir</button>
+  </div>
+</div>
+
+<app-error-page *ngIf="operacion === 'error'" [errorMsgContent]="errorMsg" (comebackTo)="handlerBackToHome();"></app-error-page>

@@ -1,0 +1,17 @@
+.title-error{
+    color:red;
+}
+
+.errorMsg{
+    font-weight: bold;
+}
+
+.error-content {
+    text-align: center;
+}
+
+.btn-atras{
+    text-align: center;
+    margin-top: 50px;
+    
+}

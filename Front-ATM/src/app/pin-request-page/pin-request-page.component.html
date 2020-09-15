@@ -1,0 +1,13 @@
+<div *ngIf="!error" class="content-pin">
+  <label class="numberPin">Numero de PIN</label>  
+  <input class="input-pin" type="text" pattern="[0-9]*" maxlength="4" placeholder="XXXX" [(ngModel)]="pinNumber" disabled ="true"><span *ngIf="pinNotEntered" class="ui-messages-error ">  *Ingrese un numero de pin.</span>
+  <app-keyboard (sendNumber)="addNumberToPin($event)"></app-keyboard>
+
+  <div class="btn-clear-submit">
+    <button class="btn-submit" type="button" (click)="submit();"> Aceptar </button> <button class="btn-submit" type="button" (click)="clear();">Limpiar</button><button class="btn-clear" type="button" (click)="salir();"> Salir</button>
+  </div>
+</div>
+
+
+
+<app-error-page *ngIf="error" [errorMsgContent]="errorMsg" (comebackTo)="handlerBackToHome();" ></app-error-page>

@@ -1,0 +1,35 @@
+
+.input-pin{
+    width: 10%;
+
+}
+.numberPin {
+    padding: 20px;
+    font-weight: bold;
+}
+
+.content-pin {
+    text-align: center;
+}
+.btn-clear-submit {
+    text-align: center;
+    
+}
+.btn-submit {
+    margin-right: 80px;
+    width: 8%;
+    height: 23px;
+    font-size: 13px;
+}
+
+.btn-clear {
+    height: 23px;
+    font-size: 13px;
+    width: 8%;
+}
+
+.ui-messages-error {
+    color: red;
+    font-size: 14px;
+    padding: 5px;
+}

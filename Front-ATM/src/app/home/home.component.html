@@ -1,0 +1,24 @@
+
+<app-credit-card-request-page
+  *ngIf="nameStep === 'credit-card'"
+  (nextStep)="handlerNextStep($event)">
+</app-credit-card-request-page>
+
+<app-pin-request-page
+  *ngIf="nameStep === 'pin-page'"
+  (nextStep)="handlerNextStep($event)">
+</app-pin-request-page>
+
+<div class="btns-operaciones" *ngIf="nameStep === 'operaciones-page'">
+  <button class="btn-submit" type="button" (click)="handlerNextStep('balance-page');"> Balance </button> <button class="btn-submit" type="button" (click)="handlerNextStep('retiro-page');">Retiro</button> <button class="btn-submit" type="button" (click)="handlerNextStep('credit-card');">Salir</button>
+</div>
+
+<app-balance-page 
+  *ngIf="nameStep === 'balance-page'"
+  (nextStep)="handlerNextStep($event)">
+</app-balance-page>
+
+<app-retiro-page 
+  *ngIf="nameStep === 'retiro-page'"
+  (nextStep)="handlerNextStep($event)">
+</app-retiro-page>

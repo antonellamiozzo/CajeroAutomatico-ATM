@@ -1,0 +1,21 @@
+.label-bal{
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: bold;
+}
+
+.sec-info { 
+    text-align: center;
+} 
+
+.btn-clear-submit {
+    text-align: center;
+    margin-top: 50px;
+    
+}
+.btn-submit {
+    margin-right: 80px;
+    width: 8%;
+    height: 23px;
+    font-size: 13px;
+}

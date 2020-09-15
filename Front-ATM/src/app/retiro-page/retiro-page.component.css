@@ -1,0 +1,46 @@
+.input-cantidadRetiro{
+    width: 10%;
+
+}
+.numberCantidadRetiro {
+    padding: 20px;
+    font-weight: bold;
+}
+
+.content-retiro {
+    text-align: center;
+}
+.btn-clear-submit {
+    text-align: center;
+    margin-top: 50px;
+    
+}
+.btn-submit {
+    margin-right: 80px;
+    width: 8%;
+    height: 23px;
+    font-size: 13px;
+}
+
+.btn-clear {
+    height: 23px;
+    font-size: 13px;
+    width: 8%;
+}
+
+
+.label-retiro{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.title-reporte{
+    color: green;
+}
+
+
+.ui-messages-error {
+    color: red;
+    font-size: 14px;
+    padding: 5px;
+}

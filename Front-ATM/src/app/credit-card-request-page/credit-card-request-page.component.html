@@ -1,0 +1,11 @@
+<div *ngIf="!error" class="content-home">
+  <label class="numberCard">Numero de Tarjeta</label>  
+  <input class="input-card" type="text" pattern="[0-9]*" disable="true" maxlength="16" placeholder="xxxx-xxxx-xxxx-xxxx" [(ngModel)]="cardNumber" value="cardNumber" (ngModelChange)="addNumberToCreditCard($event)" disabled="true" ><span *ngIf="creditCardNotEntered" class="ui-messages-error ">  *Ingrese un numero de tarjeta.</span>
+  <app-keyboard (sendNumber)="addNumberToCreditCard($event)"></app-keyboard>
+
+  <div class="btn-clear-submit">
+    <button class="btn-submit" type="button" (click)="submit();"> Aceptar </button> <button class="btn-clear" type="button" (click)="clear();">Limpiar</button>
+  </div>
+</div>
+
+<app-error-page *ngIf="error" [errorMsgContent]="errorMsg" (comebackTo)="handlerBackToHome();"></app-error-page>
