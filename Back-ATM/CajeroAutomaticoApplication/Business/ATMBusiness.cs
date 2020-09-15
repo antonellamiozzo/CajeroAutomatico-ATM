@@ -1,11 +1,11 @@
-﻿using CajeroAutomaticoApp.DataAccess;
-using CajeroAutomaticoApp.Models;
+﻿using CajeroAutomaticoApplication.DataAccess;
+using CajeroAutomaticoApplication.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CajeroAutomaticoApp.Bussines
+namespace CajeroAutomaticoApplication.Bussines
 {
     public class ATMBusiness
     {
@@ -46,6 +46,20 @@ namespace CajeroAutomaticoApp.Bussines
             catch (Exception ex)
             {
                 throw new Exception("ERROR al realizar la operacion.");
+
+            }
+        }
+
+        public void BlockCreditCard( string Nrotarjeta)
+        {
+            try
+            {
+                var atmDataAccess = new ATMDataAccess();
+                atmDataAccess.BlockCreditCard(Nrotarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("ERROR al bloquear la tarjeta.");
 
             }
         }
