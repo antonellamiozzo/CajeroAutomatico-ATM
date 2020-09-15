@@ -47,7 +47,7 @@ export class RetiroPageComponent implements OnInit {
   }
 
   atras() {
-    this.cantidadRetiro = '$$$$';
+    this.cantidadRetiro = '';
     this.operacion = 'retiro';
   }
 
